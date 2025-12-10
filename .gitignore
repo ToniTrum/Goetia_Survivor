@@ -89,6 +89,10 @@ crashlytics-build.properties
 /[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
 /[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
 
+# Test scenes
+*Test.unity
+*Test.unity.meta
+
 # LaTeX files
 *.acn
 *.acr
