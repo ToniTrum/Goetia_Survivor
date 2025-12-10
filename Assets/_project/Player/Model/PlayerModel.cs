@@ -6,7 +6,6 @@ public class PlayerModel
     private float _speed { get; set; }
     private int _health;
     private int _stamina;
-    private PLayerStateType _state;
 
     public PlayerModel(float speed)
     {
@@ -32,14 +31,5 @@ public class PlayerModel
     {
         _health = health;
     }
-
-    public void SetStamina(int stamina)
-    {
-        
-    }
     
-    public void SetState(PLayerStateType state)
-    {
-        _state = state;
-    }
 }

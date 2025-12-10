@@ -6,9 +6,7 @@ public class PlayerInstaller : MonoInstaller
     public float speed = 5.0f;
     public override void InstallBindings()
     {
-        Debug.Log("PlayerInstaller: InstallBindings called");
-
-        Container.Bind<IPlayerView>()
+        Container.Bind<PlayerView>()
             .FromComponentInHierarchy()
             .AsSingle();
 
@@ -18,8 +16,8 @@ public class PlayerInstaller : MonoInstaller
         
         Container.Bind<PlayerPresenter>()
             .AsSingle();
-        
-        Container.Bind<PLayerFsm>()
+
+        Container.Bind<PlayerFsm>()
             .AsSingle();
     }
 }
