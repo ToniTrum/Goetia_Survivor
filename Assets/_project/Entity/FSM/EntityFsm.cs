@@ -4,8 +4,8 @@ using UnityEngine;
 public abstract class EntityFsm<T>
     where T : Enum
 {
-    private T _currentState;
-    private string _animatorParameter = "AnimationState";
+    protected T _currentState;
+    private readonly string _animatorParameter = "AnimationState";
 
     public void ChangeState(T state, Animator animator)
     {
