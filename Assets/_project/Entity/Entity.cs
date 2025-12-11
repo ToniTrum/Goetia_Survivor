@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,7 +10,7 @@ public abstract class Entity : MonoBehaviour
     private Animator _animator;
 
     private ProgressBar _healthBar;
-    private IEntityView _view;
+    private IEntityView<Enum> _view;
     private IEntityPresenter _presenter;
     public bool IsRightSight { get; private set;}
 
@@ -27,9 +28,9 @@ public abstract class Entity : MonoBehaviour
         _presenter.TakeDamage(damage);
     }
 
-    public void DealDamage()
+    public void DealDamage(Entity target, int damage)
     {
-        _presenter.DealDamage();
+        _presenter.DealDamage(target, damage);
     }
 
     public void PlayDeath()

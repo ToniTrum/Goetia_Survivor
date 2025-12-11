@@ -1,16 +1,17 @@
 using UnityEngine;
+using Zenject;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Entity
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Inject] private EnemyService _enemyService;
+
+    private void OnEnable()
     {
-        
+        _enemyService.Register(this);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        _enemyService.Unregister(this);
     }
 }
