@@ -21,6 +21,8 @@ public class EnemyInstaller : MonoInstaller
             .To<EnemyView>()
             .AsSingle()
             .NonLazy();
+        Container.Bind<EnemyFactory>()
+            .AsSingle();
         Container.Bind<Enemy>()
             .FromComponentOnRoot()
             .AsSingle();
