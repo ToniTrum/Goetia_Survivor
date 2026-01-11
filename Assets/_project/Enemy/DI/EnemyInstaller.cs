@@ -11,25 +11,13 @@ public class EnemyInstaller : MonoInstaller
             .To<EnemyModel>()
             .AsSingle()
             .WithArguments(_config);
+
         Container.Bind<IEntityPresenter>()
             .To<EnemyPresenter>()
-            .AsSingle()
-            .NonLazy();
-        Container.Bind<EnemyFsm>()
             .AsSingle();
+        
         Container.Bind<IEntityView<EnemyStateType>>()
             .To<EnemyView>()
-            .AsSingle()
-            .NonLazy();
-        Container.Bind<EnemyFactory>()
             .AsSingle();
-        Container.Bind<Enemy>()
-            .FromComponentOnRoot()
-            .AsSingle();
-    }
-
-    public void SetConfig(EnemyBaseModel config)
-    {
-        _config = config;
     }
 }
