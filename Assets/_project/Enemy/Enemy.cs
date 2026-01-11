@@ -3,7 +3,7 @@ using Zenject;
 
 public class Enemy : Entity
 {
-    [Inject] private EnemyService _enemyService;
+    [Inject] private readonly EnemyService _enemyService;
 
     private void OnEnable()
     {
@@ -14,4 +14,6 @@ public class Enemy : Entity
     {
         _enemyService.Unregister(this);
     }
+
+    public class Factory : PlaceholderFactory<Vector3, GameObject, Enemy> { }
 }
