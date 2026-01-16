@@ -10,7 +10,11 @@ public class EnemyFactory
         _container = container;
     }
     
-    public Enemy Create(EnemySpawnModel enemySpawnModel, Vector3 position)
+    public Enemy Create
+    (
+        EnemySpawnModel enemySpawnModel, 
+        Vector3 position
+    )
     {
         var subContainer = _container.CreateSubContainer();
 
@@ -28,6 +32,9 @@ public class EnemyFactory
         subContainer.Bind<IEntityView<EnemyStateType>>()
             .To<EnemyView>()
             .AsTransient();
+
+        EnemyHandInstaller handInstaller = new(subContainer, enemySpawnModel.HandConfig, enemySpawnModel.EnemyType);
+        handInstaller.InstallBindings();
         
         return subContainer.InstantiatePrefabForComponent<Enemy>(
             enemySpawnModel.EnemyPrefab,

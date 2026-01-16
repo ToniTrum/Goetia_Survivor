@@ -7,15 +7,12 @@ public abstract class HandModel
     public float AttackCooldown { get; private set; }
     public float Damage { get; private set; }
 
-    public HandModel(HandBaseModel handBaseModel)
+    public HandModel(HandConfig handBaseModel)
     {
         Range = handBaseModel.BaseRange;
         AttackCooldown = handBaseModel.BaseAttackCooldown;
         Damage = handBaseModel.BaseDamage;
     }
 
-    public virtual IReadOnlyList<Transform> GetTargets()
-    {
-        return null;
-    }
+    public abstract IReadOnlyList<Transform> GetTargets();
 }

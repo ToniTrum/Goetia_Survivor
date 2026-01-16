@@ -162,15 +162,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1768276917352147451}
   - component: {fileID: 1096127600621476710}
-  - component: {fileID: 80407056181315624}
-  - component: {fileID: 3869226248926318598}
+  - component: {fileID: 6356954038643989083}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1768276917352147451
 Transform:
   m_ObjectHideFlags: 0
@@ -241,7 +240,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &80407056181315624
+--- !u!114 &6356954038643989083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,18 +249,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2963006828538514859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ec9c97adcaebe73ebdfd2e1087127a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3869226248926318598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2963006828538514859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3981cc6d96c29c91a871fedf76c9373e, type: 3}
+  m_Script: {fileID: 11500000, guid: 271c9fed5ec2594a58ab8825a739bf2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

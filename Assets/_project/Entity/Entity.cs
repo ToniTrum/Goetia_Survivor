@@ -8,11 +8,11 @@ using Zenject;
 public abstract class Entity<TState> : MonoBehaviour, IEntity
     where TState : Enum
 {
-    protected Rigidbody2D _rigidbody;
-    protected Animator _animator;
-    // protected Hand _hand;
-
-    protected ProgressBar _healthBar;
+    protected Rigidbody2D Rigidbody { get; private set; }
+    protected Animator Animator { get; private set; }
+    protected ProgressBar HealthBar { get; private set; }
+    protected Hand<TState> Hand { get; private set; }
+    
     [Inject] protected IEntityView<TState> View { get; private set; }
     [Inject] protected IEntityPresenter Presenter { get; private set; }
     
@@ -20,14 +20,14 @@ public abstract class Entity<TState> : MonoBehaviour, IEntity
 
     public void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
-        //_hand = GetComponentInChildren<Hand>();
+        Rigidbody = GetComponent<Rigidbody2D>();
+        Animator = GetComponent<Animator>();
+        Hand = GetComponentInChildren<Hand<TState>>();
     }
 
     public void TakeDamage(int damage)
     {
-        View.UpdateParameterBar(damage, _healthBar, Presenter.GetMaxHealth());
+        View.UpdateParameterBar(damage, HealthBar, Presenter.GetMaxHealth());
         View.PlayHit();
         
         Presenter.TakeDamage(damage);

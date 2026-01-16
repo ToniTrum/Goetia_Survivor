@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b898fba6cee1b4e3853ccfa0b682989, type: 3}
-  m_Name: FurcasHandBaseModel
+  m_Name: FurcasHandConfig
   m_EditorClassIdentifier: 
   BaseRange: 10
   BaseAttackCooldown: 10

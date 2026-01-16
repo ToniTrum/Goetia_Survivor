@@ -1,14 +1,17 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class Hand : MonoBehaviour
+public class Hand<TState> : MonoBehaviour
+    where TState : Enum
 {
     private SpriteRenderer _spriteRenderer;
 
-    private readonly HandView _view;
-    private readonly HandPresenter _presenter;
-    private readonly HandTargetLocator _targetLocator;
+    [Inject] protected HandView<TState> View { get; private set; }
+    [Inject] protected HandPresenter Presenter { get; private set; }
+    [Inject] protected HandTargetLocator TargetLocator { get; private set; }
 
     public void Awake()
     {
@@ -17,18 +20,23 @@ public class Hand : MonoBehaviour
 
     public void Enable()
     {
-        _view.EnableSprite(_spriteRenderer);
+        View.EnableSprite(_spriteRenderer);
     }
 
     public void Disable()
     {
-        _view.DisableSprite(_spriteRenderer);
+        View.DisableSprite(_spriteRenderer);
     }
 
     public void FixedUpdate()
     {
-        IReadOnlyList<Transform> targets = _presenter.GetTargets();
-        Transform target = _targetLocator.ChooseTarget(targets, transform.position);
-        Debug.Log(target);
+        IReadOnlyList<Transform> targets = Presenter.GetTargets();
+        Transform target = TargetLocator.ChooseTarget(targets, transform.position);
     }
+
+    // public void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.red;
+    //     Gizmos.DrawLine(transform.position, TargetLocator.ChooseTarget(Presenter.GetTargets(), transform.position).position);
+    // }
 }

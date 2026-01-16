@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class HandPresenter
 {
-    readonly HandModel _model;
+    [Inject] protected HandModel Model { get; private set; }
 
     public IReadOnlyList<Transform> GetTargets()
     {
-        return _model.GetTargets();
+        return Model.GetTargets();
     }
 }

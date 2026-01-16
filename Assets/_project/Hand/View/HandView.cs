@@ -1,11 +1,15 @@
+using System;
 using UnityEngine;
+using Zenject;
 
-public abstract class HandView
+public abstract class HandView<T>
+    where T : Enum
 {
-    public void AimIt(Vector3 target) { }
-    public void Idle() { }
-    public void Walk() { }
-    public void Attack() { }
+    [Inject] private HandFsm<T> _fsm;
+
+    public abstract void Idle();
+    public abstract void Walk();
+    public abstract void Attack();
 
     public void EnableSprite(SpriteRenderer spriteRenderer)
     {
@@ -16,5 +20,9 @@ public abstract class HandView
     {
         spriteRenderer.enabled = false;
     }
-}
 
+    public void ChangeState(T state, Animator animator)
+    {
+        _fsm.ChangeState(state, animator);
+    }
+}

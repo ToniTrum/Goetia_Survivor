@@ -16,7 +16,7 @@ public class Enemy : Entity<EnemyStateType>
     public void OnSpawnAnimationComplete()
     {
         _enemyService.Register(this);        
-        View?.ChangeState(EnemyStateType.Idle, _animator);
+        View?.ChangeState(EnemyStateType.Idle, Animator);
     }
 
     private void OnDisable()

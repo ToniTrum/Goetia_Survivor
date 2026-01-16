@@ -2,11 +2,11 @@ using Zenject;
 
 public class EnemyPresenter : IEntityPresenter
 {
-    [Inject] private EnemyModel _model;
+    [Inject] protected EnemyModel Model { get; private set; }
 
     public void TakeDamage(int damage)
     {
-        _model.TakeDamage(damage);
+        Model.TakeDamage(damage);
     }
 
     public void DealDamage(IEntity player, int damage)
@@ -16,11 +16,11 @@ public class EnemyPresenter : IEntityPresenter
 
     public int GetMaxHealth()
     {
-        return _model.MaxHealth;
+        return Model.MaxHealth;
     }
 
     public int GetHealth()
     {
-        return _model.Health;
+        return Model.Health;
     }
 }

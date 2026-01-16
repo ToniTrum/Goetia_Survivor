@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "BaseModels/Hand")]
-public class HandBaseModel : ScriptableObject
+[CreateAssetMenu(menuName = "Config/Hand")]
+public class HandConfig : ScriptableObject
 {
     public float BaseRange;
     public float BaseAttackCooldown;

@@ -5,6 +5,11 @@ public class HandTargetLocator
 {
     public Transform ChooseTarget(IReadOnlyList<Transform> targets, Vector3 position)
     {
+        if (targets == null)
+        {
+            return null;
+        }
+
         float minDistance = float.MaxValue;
         Transform nearestTarget = null;
 
