@@ -6,8 +6,11 @@ public class ArenaInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<EnemyService>()
-            .AsSingle();
+            .AsSingle()
+            .NonLazy();
 
-        Container.BindFactory<Vector3, GameObject, Enemy, Enemy.Factory>();
+        Container.Bind<EnemyFactory>()
+            .AsSingle()
+            .NonLazy();
     }
 }

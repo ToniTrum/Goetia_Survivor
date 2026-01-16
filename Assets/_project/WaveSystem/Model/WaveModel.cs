@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Wave/WaveModel")]
+[CreateAssetMenu(menuName = "Model/Wave")]
 public class WaveModel : ScriptableObject
 {
     public EnemySpawnModel[] Enemies;

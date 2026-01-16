@@ -1,16 +1,26 @@
-using UnityEngine;
+using Zenject;
 
 public class EnemyPresenter : IEntityPresenter
 {
-    EnemyModel _model;
+    [Inject] protected EnemyModel Model { get; private set; }
 
     public void TakeDamage(int damage)
     {
-        _model.TakeDamage(damage);
+        Model.TakeDamage(damage);
     }
 
-    public void DealDamage(Entity player, int damage)
+    public void DealDamage(IEntity player, int damage)
     {
         player.TakeDamage(damage);
+    }
+
+    public int GetMaxHealth()
+    {
+        return Model.MaxHealth;
+    }
+
+    public int GetHealth()
+    {
+        return Model.Health;
     }
 }

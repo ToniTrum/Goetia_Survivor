@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91c26d190bec0fa7ca7ea789c484872b, type: 3}
-  m_Name: FurcasBaseModel
+  m_Script: {fileID: 11500000, guid: 0b898fba6cee1b4e3853ccfa0b682989, type: 3}
+  m_Name: FurcasHandConfig
   m_EditorClassIdentifier: 
-  BaseSpeed: 1
-  BaseMaxHealth: 10
+  BaseRange: 10
+  BaseAttackCooldown: 10
   BaseDamage: 10
-  BaseAttackRange: 10

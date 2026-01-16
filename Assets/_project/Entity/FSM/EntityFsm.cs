@@ -5,7 +5,7 @@ public abstract class EntityFsm<T>
     where T : Enum
 {
     protected T _currentState;
-    private readonly string _animatorParameter = "AnimationState";
+    private readonly string _animatorParameter = "State";
 
     public void ChangeState(T state, Animator animator)
     {

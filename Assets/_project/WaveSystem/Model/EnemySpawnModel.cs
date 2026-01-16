@@ -4,6 +4,8 @@ using UnityEngine;
 public class EnemySpawnModel
 {
     public GameObject EnemyPrefab;
-    public EnemyBaseModel EnemyBaseModel;
+    public EnemyConfig EnemyConfig;
+    public HandConfig HandConfig;
+    public EnemyType EnemyType;
     [Min(0.01f)] public float SpawnWeight = 1f;
 }

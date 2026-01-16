@@ -10,14 +10,12 @@ public class WaveSystem : MonoBehaviour
     [SerializeField] private Vector2 _spawnAreaSize = new(23f, 22f);
     [SerializeField] private WaitForSeconds _waveStartWaiting = new(1.5f);
 
-    private DiContainer _container;
-    private Enemy.Factory _enemyFactory;
+    private EnemyFactory _enemyFactory;
     private int _currentWaveIndex = -1;
 
     [Inject]
-    private void Construct(DiContainer container, Enemy.Factory enemyFactory)
+    private void Construct(EnemyFactory enemyFactory)
     {
-        _container = container;
         _enemyFactory = enemyFactory;
     }
 
@@ -59,12 +57,7 @@ public class WaveSystem : MonoBehaviour
             EnemySpawnModel selected = WaveSystemPresenter.Pick(wave.Enemies);
             Vector3 position = GetRandomSpawnPosition();
 
-            _container.InstantiatePrefabForComponent<Enemy>(
-                selected.EnemyPrefab,
-                position,
-                Quaternion.identity,
-                null
-            );
+            _enemyFactory.Create(selected, position);
 
             yield return new WaitForSeconds(wave.SpawnInterval);
         }
@@ -85,3 +78,5 @@ public class WaveSystem : MonoBehaviour
         Gizmos.DrawWireCube(transform.position, new Vector3(_spawnAreaSize.x, _spawnAreaSize.y, 1));
     }
 }
+
+public interface IEnemyFactory : IFactory<EnemySpawnModel, Vector3, Enemy> { }
