@@ -1,11 +1,11 @@
-using System;
 using UnityEngine;
+using System;
 
-public abstract class EntityFsm<T>
+public abstract class HandFsm<T>
     where T : Enum
 {
     protected T _currentState;
-    private readonly string _animatorParameter = "State";
+    private readonly string _animatorParameter = "AnimationState";
 
     public void ChangeState(T state, Animator animator)
     {

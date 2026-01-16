@@ -7,7 +7,7 @@ public class EnemyModel : IEntityModel
     public float Speed { get; private set; }
     public bool IsAlive => Health > 0;
 
-    public EnemyModel(EnemyBaseModel enemyBaseModel)
+    public EnemyModel(EnemyConfig enemyBaseModel)
     {
         MaxHealth = enemyBaseModel.BaseMaxHealth;
         Health = MaxHealth;

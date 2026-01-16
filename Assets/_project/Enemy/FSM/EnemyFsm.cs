@@ -4,6 +4,6 @@ public class EnemyFsm : EntityFsm<EnemyStateType>
 {
     public EnemyFsm()
     {
-        _currentState = EnemyStateType.Idle;
+        _currentState = EnemyStateType.Spawn;
     }
 }

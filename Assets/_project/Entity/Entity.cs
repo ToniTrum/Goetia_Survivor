@@ -1,40 +1,45 @@
 using System;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Zenject;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
-public abstract class Entity : MonoBehaviour
+public abstract class Entity<TState> : MonoBehaviour, IEntity
+    where TState : Enum
 {
-    private Rigidbody2D _rigidbody;
-    private Animator _animator;
+    protected Rigidbody2D _rigidbody;
+    protected Animator _animator;
+    // protected Hand _hand;
 
-    private ProgressBar _healthBar;
-    private IEntityView<Enum> _view;
-    private IEntityPresenter _presenter;
+    protected ProgressBar _healthBar;
+    [Inject] protected IEntityView<TState> View { get; private set; }
+    [Inject] protected IEntityPresenter Presenter { get; private set; }
+    
     public bool IsRightSight { get; private set;}
 
     public void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        //_hand = GetComponentInChildren<Hand>();
     }
 
     public void TakeDamage(int damage)
     {
-        _view.UpdateParameterBar(damage, _healthBar);
-        _view.PlayHit();
+        View.UpdateParameterBar(damage, _healthBar, Presenter.GetMaxHealth());
+        View.PlayHit();
         
-        _presenter.TakeDamage(damage);
+        Presenter.TakeDamage(damage);
     }
 
-    public void DealDamage(Entity target, int damage)
+    public void DealDamage(IEntity target, int damage)
     {
-        _presenter.DealDamage(target, damage);
+        Presenter.DealDamage(target, damage);
     }
 
     public void PlayDeath()
     {
-        _view.PlayDeath();
+        View.PlayDeath();
     }
 }

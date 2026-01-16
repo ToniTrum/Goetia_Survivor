@@ -1,5 +1,6 @@
 public enum EnemyStateType
 {
+    Spawn,
     Idle,
     Walk,
     Attack,

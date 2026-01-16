@@ -1,19 +1,26 @@
 using UnityEngine;
 using Zenject;
 
-public class Enemy : Entity
+public class Enemy : Entity<EnemyStateType>
 {
-    [Inject] private readonly EnemyService _enemyService;
+    public class Factory : PlaceholderFactory<Vector3, GameObject, Enemy> { }
 
-    private void OnEnable()
+    private EnemyService _enemyService;
+
+    [Inject]
+    private void Construct(EnemyService enemyService)
     {
-        _enemyService.Register(this);
+        _enemyService = enemyService;
+    }
+
+    public void OnSpawnAnimationComplete()
+    {
+        _enemyService.Register(this);        
+        View?.ChangeState(EnemyStateType.Idle, _animator);
     }
 
     private void OnDisable()
     {
         _enemyService.Unregister(this);
     }
-
-    public class Factory : PlaceholderFactory<Vector3, GameObject, Enemy> { }
 }
