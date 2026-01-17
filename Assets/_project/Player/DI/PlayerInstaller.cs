@@ -3,10 +3,10 @@ using Zenject;
 
 public class PlayerInstaller : MonoInstaller
 {
+    [SerializeField] private PlayerConfig playerConfig;
     public float speed = 5.0f;
     public override void InstallBindings()
     {
-        Debug.Log("HELLO?");
         Container.Bind<Entity<PlayerStateType>>().
             To<Player>()
             .FromComponentInHierarchy()
@@ -16,8 +16,16 @@ public class PlayerInstaller : MonoInstaller
             .AsSingle();
 
         Container.Bind<PlayerModel>()
-            .AsSingle()
-            .WithArguments(speed);
+            .FromInstance(
+                new PlayerModel(
+                    playerConfig.MaxHealth,
+                    playerConfig.Speed,
+                    playerConfig.DashSpeed,
+                    playerConfig.DashDuration,
+                    playerConfig.DashCooldown
+                )
+            )
+            .AsSingle();
         
         Container.Bind<IEntityPresenter>()
             .To<PlayerPresenter>()

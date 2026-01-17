@@ -5,30 +5,62 @@ using Zenject;
 public class Player : Entity<PlayerStateType>
 {
     private Vector2 moveInput;
+    private float lastDashTime = 0f;
     [Inject] protected PlayerModel Model;
+
     private bool moving => moveInput != Vector2.zero;
-    private bool dashing => Input.GetKeyDown(KeyCode.Space);
+    private bool isDashing = false;
+    private float dashEndTime = 0f;
+    private Vector2 dashDirection;
 
     private void Update()
     {
         ReadInput();
+
+       
+        if (Input.GetKeyDown(KeyCode.Space))
+            StartDash();
     }
 
     private void FixedUpdate()
     {
-        ActionHandling();
+        
+        if (isDashing)
+        {
+            Vector2 velocity = dashDirection * Model.DashSpeed * Time.fixedDeltaTime;
+            Rigidbody.MovePosition(Rigidbody.position + velocity);
+
+            if (Time.time >= dashEndTime)
+                isDashing = false;
+        }
+        else
+        {
+            ActionHandling();
+        }
     }
 
     private void ReadInput()
     {
-        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        moveInput = moveInput.normalized;
+        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
     }
 
     private void Move()
     {
         Vector2 vel = moveInput * (float)(Model.Speed * Time.deltaTime);
         Rigidbody?.MovePosition(Rigidbody.position + vel);
+    }
+
+    private void StartDash()
+    {
+        if (Time.time < lastDashTime + Model.DashCooldown || moveInput == Vector2.zero)
+            return;
+
+        isDashing = true;
+        dashEndTime = Time.time + Model.DashDuration;
+        lastDashTime = Time.time;
+        dashDirection = moveInput;
+
+        View?.ChangeState(PlayerStateType.Dash, Animator);
     }
 
     private void Idle()
@@ -50,7 +82,6 @@ public class Player : Entity<PlayerStateType>
         }
     }
 
-
     private void ActionHandling()
     {
         if(moving)
@@ -63,6 +94,5 @@ public class Player : Entity<PlayerStateType>
         {
             Idle();
         }
-        
     }
 }
