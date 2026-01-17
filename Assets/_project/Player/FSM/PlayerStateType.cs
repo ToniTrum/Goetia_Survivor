@@ -2,8 +2,8 @@ using UnityEngine;
 
 public enum PlayerStateType
 {
-    PlayerIdle = 0,
-    PlayerWalk = 1,
-    PlayerDash = 2,
-    PlayerDie = -1
+    Idle = 0,
+    Walk = 1,
+    Dash = 2,
+    Die = -1
 }

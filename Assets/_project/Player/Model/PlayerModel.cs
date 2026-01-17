@@ -1,35 +1,14 @@
-public class PlayerModel
+using Unity.Mathematics;
+
+public class PlayerModel : IEntityModel
 {
-    
-    private int _maxHealth { get; set; }
-    private int _maxStamina { get; set; }
-    private float _speed { get; set; }
-    private int _health;
-    private int _stamina;
+    public int MaxHealth { get; set; }
+    public int Health { get; set; }
+    public float Speed { get; set; }
+    public bool IsAlive => Health > 0;
 
-    public PlayerModel(float speed)
+    public void TakeDamage(int damage)
     {
-        _speed = speed;
+        Health = math.max(0, Health - damage);
     }
-    
-    public int GetHealth()
-    {
-        return _health;
-    }
-
-    public int GetStamina()
-    {
-        return _stamina;
-    }
-
-    public float GetSpeed()
-    {
-        return _speed;
-    }
-
-    public void SetHealth(int health)
-    {
-        _health = health;
-    }
-    
 }
