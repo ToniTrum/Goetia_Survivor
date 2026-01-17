@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 using Zenject;
 
@@ -26,7 +27,7 @@ public class Player : Entity<PlayerStateType>
 
     private void Move()
     {
-        Vector2 vel = moveInput * (float)(5.0 * Time.deltaTime);
+        Vector2 vel = moveInput * (float)(Model.Speed * Time.deltaTime);
         Rigidbody?.MovePosition(Rigidbody.position + vel);
     }
 
@@ -35,11 +36,27 @@ public class Player : Entity<PlayerStateType>
         View?.ChangeState(PlayerStateType.Idle, Animator);
     }
 
+    private void Flip()
+    {
+        if (moveInput.x > 0 && !IsRightSight)
+        {
+            IsRightSight = true;
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (moveInput.x < 0 && IsRightSight)
+        {
+            IsRightSight = false;
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
+
+
     private void ActionHandling()
     {
         if(moving)
         {
             View?.ChangeState(PlayerStateType.Walk, Animator);
+            Flip();
             Move();
         }
         else

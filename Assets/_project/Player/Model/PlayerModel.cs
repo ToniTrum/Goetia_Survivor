@@ -11,4 +11,9 @@ public class PlayerModel : IEntityModel
     {
         Health = math.max(0, Health - damage);
     }
+
+    public PlayerModel(float speed)
+    {
+        Speed = speed;
+    }
 }

@@ -15,8 +15,7 @@ public class PlayerInstaller : MonoInstaller
             .To<PlayerView>()   
             .AsSingle();
 
-        Container.Bind<IEntityModel>()
-            .To<PlayerModel>()
+        Container.Bind<PlayerModel>()
             .AsSingle()
             .WithArguments(speed);
         
@@ -24,8 +23,7 @@ public class PlayerInstaller : MonoInstaller
             .To<PlayerPresenter>()
             .AsSingle();
 
-        Container.Bind<EntityFsm<PlayerStateType>>()
-            .To<PlayerFsm>()
+        Container.Bind<PlayerFsm>()
             .AsSingle();
     }
 }
