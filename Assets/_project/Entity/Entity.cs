@@ -16,7 +16,7 @@ public abstract class Entity<TState> : MonoBehaviour, IEntity
     [Inject] protected IEntityView<TState> View { get; private set; }
     [Inject] protected IEntityPresenter Presenter { get; private set; }
     
-    public bool IsRightSight { get; private set;}
+    protected bool IsRightSight { get; set;}
 
     public void Awake()
     {
