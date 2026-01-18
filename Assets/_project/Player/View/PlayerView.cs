@@ -23,7 +23,6 @@ public class PlayerView : IEntityView<PlayerStateType>
 
     public void ChangeState(PlayerStateType newState, Animator animator)
     {
-        Debug.Log("Trying walking");
         _fsm.ChangeState(newState, animator);
     }
 }
