@@ -3,8 +3,6 @@ using Zenject;
 
 public class Enemy : Entity<EnemyStateType>
 {
-    public class Factory : PlaceholderFactory<Vector3, GameObject, Enemy> { }
-
     private EnemyService _enemyService;
 
     [Inject]
@@ -15,8 +13,9 @@ public class Enemy : Entity<EnemyStateType>
 
     public void OnSpawnAnimationComplete()
     {
-        _enemyService.Register(this);        
-        View?.ChangeState(EnemyStateType.Idle, Animator);
+        _enemyService.Register(this);
+        View.ChangeState(EnemyStateType.Idle, Animator);
+        Hand.ChangeState(EnemyStateType.Idle);
     }
 
     private void OnDisable()

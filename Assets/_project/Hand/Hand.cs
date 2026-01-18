@@ -8,6 +8,7 @@ public class Hand<TState> : MonoBehaviour
     where TState : Enum
 {
     private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
 
     [Inject] protected HandView<TState> View { get; private set; }
     [Inject] protected HandPresenter Presenter { get; private set; }
@@ -16,16 +17,12 @@ public class Hand<TState> : MonoBehaviour
     public void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
-    public void Enable()
+    public void ChangeState(TState state)
     {
-        View.EnableSprite(_spriteRenderer);
-    }
-
-    public void Disable()
-    {
-        View.DisableSprite(_spriteRenderer);
+        View.ChangeState(state, _animator);
     }
 
     public void FixedUpdate()
@@ -34,9 +31,13 @@ public class Hand<TState> : MonoBehaviour
         Transform target = TargetLocator.ChooseTarget(targets, transform.position);
     }
 
-    // public void OnDrawGizmos()
-    // {
-    //     Gizmos.color = Color.red;
-    //     Gizmos.DrawLine(transform.position, TargetLocator.ChooseTarget(Presenter.GetTargets(), transform.position).position);
-    // }
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine
+        (
+            transform.position, 
+            TargetLocator.ChooseTarget(Presenter.GetTargets(), transform.position).position
+        );
+    }
 }
