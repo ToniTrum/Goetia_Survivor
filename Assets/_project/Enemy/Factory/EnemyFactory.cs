@@ -26,6 +26,9 @@ public class EnemyFactory
             .To<EnemyPresenter>()
             .AsTransient();
 
+        subContainer.Bind<EnemyMovement>()
+            .AsTransient();
+
         subContainer.Bind<EnemyFsm>()
             .AsTransient();
             

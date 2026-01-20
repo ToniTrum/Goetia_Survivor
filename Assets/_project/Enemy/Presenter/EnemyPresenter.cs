@@ -23,4 +23,14 @@ public class EnemyPresenter : IEntityPresenter
     {
         return Model.Health;
     }
+
+    public float GetRange()
+    {
+        return Model.Range;
+    }
+
+    public float GetSpeed()
+    {
+        return Model.Speed;
+    }
 }

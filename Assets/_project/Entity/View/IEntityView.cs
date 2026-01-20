@@ -8,5 +8,6 @@ public interface IEntityView<T>
     public void UpdateParameterBar(int currentValue, ProgressBar parameterBar, int maxValue);
     public void PlayHit();
     public void PlayDeath();
+    public T GetState();
     public void ChangeState(T newState, Animator animator);
 }

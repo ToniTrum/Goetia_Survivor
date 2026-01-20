@@ -5,6 +5,7 @@ public class EnemyModel : IEntityModel
     public int MaxHealth { get; private set; }
     public int Health { get; private set; }
     public float Speed { get; private set; }
+    public float Range { get; private set; }
     public bool IsAlive => Health > 0;
 
     public EnemyModel(EnemyConfig enemyBaseModel)
@@ -12,6 +13,7 @@ public class EnemyModel : IEntityModel
         MaxHealth = enemyBaseModel.BaseMaxHealth;
         Health = MaxHealth;
         Speed = enemyBaseModel.BaseSpeed;
+        Range = enemyBaseModel.BaseRange;
     }
 
     public void TakeDamage(int damage)

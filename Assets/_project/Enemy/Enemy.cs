@@ -3,23 +3,38 @@ using Zenject;
 
 public class Enemy : Entity<EnemyStateType>
 {
-    private EnemyService _enemyService;
-
-    [Inject]
-    private void Construct(EnemyService enemyService)
-    {
-        _enemyService = enemyService;
-    }
+    [Inject] protected EnemyMovement Movement;
+    [Inject] protected EnemyService EnemyService;
 
     public void OnSpawnAnimationComplete()
     {
-        _enemyService.Register(this);
+        EnemyService.Register(this);
         View.ChangeState(EnemyStateType.Idle, Animator);
         Hand.ChangeState(EnemyStateType.Idle);
     }
 
     private void OnDisable()
     {
-        _enemyService.Unregister(this);
+        EnemyService.Unregister(this);
+    }
+
+    private void Move()
+    {
+        Vector3 target = Hand.GetDirection();
+        Movement.Move(target, transform, Presenter.GetRange(), Presenter.GetSpeed());
+        if (Movement.IsMoving)
+        {
+            View.ChangeState(EnemyStateType.Walk, Animator);
+            Hand.ChangeState(EnemyStateType.Walk);
+        }
+    }
+
+    private void Update()
+    {
+        EnemyStateType state = View.GetState();
+        if (state != EnemyStateType.Spawn && state != EnemyStateType.Death)
+        {
+            Move();
+        }
     }
 }

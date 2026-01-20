@@ -28,4 +28,13 @@ public class PlayerPresenter : IEntityPresenter
         return _model.Health;
     }
     
+    public float GetRange()
+    {
+        return _model.Range;
+    }
+
+    public float GetSpeed()
+    {
+        return _model.Speed;
+    }
 }

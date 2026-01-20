@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class Hand<TState> : MonoBehaviour
     where TState : Enum
 {
-    private SpriteRenderer _spriteRenderer;
     private Animator _animator;
 
     [Inject] protected HandView<TState> View { get; private set; }
@@ -16,7 +14,6 @@ public class Hand<TState> : MonoBehaviour
 
     public void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponentInChildren<Animator>();
     }
 
@@ -25,10 +22,9 @@ public class Hand<TState> : MonoBehaviour
         View.ChangeState(state, _animator);
     }
 
-    public void FixedUpdate()
+    public Vector3 GetDirection()
     {
-        IReadOnlyList<Transform> targets = Presenter.GetTargets();
-        Transform target = TargetLocator.ChooseTarget(targets, transform.position);
+        return TargetLocator.ChooseTarget(Presenter.GetTargets(), transform.position).position;
     }
 
     public void OnDrawGizmos()
