@@ -1,15 +1,17 @@
 using System;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 using Zenject;
 
 public class EnemyView : IEntityView<EnemyStateType>
 {
     [Inject] private EnemyFsm _fsm;
 
-    public void UpdateParameterBar(int damage, ProgressBar healthBar, int maxHealth)
+
+    public void UpdateParameterBar(Image healthBar, int damage, int maxHealth)
     {
-        healthBar.value = Math.Clamp(healthBar.value - damage, 0, maxHealth);
+        float amount = healthBar.fillAmount * maxHealth;
+        healthBar.fillAmount = Math.Clamp(amount - damage, 0, maxHealth) / maxHealth;
     }
 
     public void PlayHit()

@@ -1,11 +1,11 @@
 using System;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public interface IEntityView<T>
     where T : Enum
 {
-    public void UpdateParameterBar(int currentValue, ProgressBar parameterBar, int maxValue);
+    public void UpdateParameterBar(Image parameterBar, int currentValue, int maxValue);
     public void PlayHit();
     public void PlayDeath();
     public T GetState();

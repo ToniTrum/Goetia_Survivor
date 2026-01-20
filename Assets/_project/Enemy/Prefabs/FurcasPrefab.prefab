@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 185516378500731835, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1637252378673679880, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
       propertyPath: _enemyConfig
       value: 
@@ -76,6 +80,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6118196796748758619, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_Name
+      value: Background
+      objectReference: {fileID: 0}
     - target: {fileID: 6522104900062585435, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -83,6 +91,10 @@ PrefabInstance:
     - target: {fileID: 6522104900062585435, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101653486347773001, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 7554339651918893044, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
       propertyPath: m_LocalPosition.x
