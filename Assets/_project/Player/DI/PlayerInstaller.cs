@@ -21,6 +21,8 @@ public class PlayerInstaller : MonoInstaller
                     playerConfig.MaxHealth,
                     playerConfig.Speed,
                     playerConfig.Range,
+
+                    playerConfig.AttackCooldown,
                     
                     playerConfig.DashSpeed,
                     playerConfig.DashDuration,

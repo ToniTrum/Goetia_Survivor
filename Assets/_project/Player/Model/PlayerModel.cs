@@ -7,6 +7,8 @@ public class PlayerModel : IEntityModel
     public float Speed { get; set; }
     public float Range { get; set; }
 
+    public float AttackCooldown { get; set; }
+
     public float DashSpeed { get; set; } 
     public float DashDuration { get; set; } 
     public float DashCooldown { get; set; }
@@ -17,12 +19,25 @@ public class PlayerModel : IEntityModel
         Health = math.max(0, Health - damage);
     }
 
-    public PlayerModel(int maxHealth, float speed, float range, float dashSpeed, float dashDuration, float dashCooldown)
+    public PlayerModel
+    (
+        int maxHealth, 
+        float speed, 
+        float range,
+
+        float attackCooldown,
+        
+        float dashSpeed, 
+        float dashDuration, 
+        float dashCooldown
+    )
     {
         MaxHealth = maxHealth;
         Health = maxHealth;
         Speed = speed;
         Range = range;
+
+        AttackCooldown = attackCooldown;
 
         DashSpeed = dashSpeed;
         DashDuration = dashDuration;

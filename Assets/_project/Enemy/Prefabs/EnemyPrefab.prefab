@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 3852205216784209722}
   - component: {fileID: 6522104900062585435}
   - component: {fileID: 1933211572795268045}
+  - component: {fileID: 7312815619730204334}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -307,3 +308,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7312815619730204334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5521789207739871189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ae5603bd6aea11b830c82745e89b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -27,18 +27,31 @@ public class Hand<TState> : MonoBehaviour
         View.ChangeState(state, _animator);
     }
 
-    public Vector3 GetDirection()
+    public Vector3? GetDirection()
     {
-        return TargetLocator.ChooseTarget(Presenter.GetTargets(), transform.position).position;
+        var targets = Presenter.GetTargets();
+        if (targets == null)
+        {
+            return null;
+        }
+
+        return TargetLocator.ChooseTarget(targets, transform.position).position;
     }
 
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
+        var targets = Presenter.GetTargets();
+
+        if (targets == null)
+        {
+            return;
+        }
+
         Gizmos.DrawLine
         (
             transform.position, 
-            TargetLocator.ChooseTarget(Presenter.GetTargets(), transform.position).position
+            TargetLocator.ChooseTarget(targets, transform.position).position
         );
     }
 }

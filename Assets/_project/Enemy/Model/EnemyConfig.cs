@@ -7,4 +7,5 @@ public class EnemyConfig : ScriptableObject
     public int BaseMaxHealth;
     public int BaseDamage;
     public float BaseRange;
+    public float BaseAttackCooldown;
 }

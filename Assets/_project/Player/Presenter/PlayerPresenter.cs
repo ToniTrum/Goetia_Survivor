@@ -37,4 +37,9 @@ public class PlayerPresenter : IEntityPresenter
     {
         return _model.Speed;
     }
+
+    public float GetAttackCooldown()
+    {
+        return _model.AttackCooldown;
+    }
 }

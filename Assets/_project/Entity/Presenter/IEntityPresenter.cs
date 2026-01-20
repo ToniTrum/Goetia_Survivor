@@ -9,4 +9,5 @@ public interface IEntityPresenter
     int GetHealth();
     float GetSpeed();
     float GetRange();
+    float GetAttackCooldown();
 }

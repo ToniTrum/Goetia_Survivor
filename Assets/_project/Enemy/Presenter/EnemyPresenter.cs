@@ -33,4 +33,9 @@ public class EnemyPresenter : IEntityPresenter
     {
         return Model.Speed;
     }
+
+    public float GetAttackCooldown()
+    {
+        return Model.AttackCooldown;
+    }
 }
