@@ -17,6 +17,11 @@ public class Hand<TState> : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
     }
 
+    public TState GetState()
+    {
+        return View.GetState();
+    }
+
     public void ChangeState(TState state)
     {
         View.ChangeState(state, _animator);
