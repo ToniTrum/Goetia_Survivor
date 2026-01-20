@@ -20,6 +20,10 @@ public class PlayerInstaller : MonoInstaller
                 new PlayerModel(
                     playerConfig.MaxHealth,
                     playerConfig.Speed,
+                    playerConfig.Range,
+
+                    playerConfig.AttackCooldown,
+                    
                     playerConfig.DashSpeed,
                     playerConfig.DashDuration,
                     playerConfig.DashCooldown

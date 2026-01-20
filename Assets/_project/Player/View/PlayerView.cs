@@ -21,6 +21,11 @@ public class PlayerView : IEntityView<PlayerStateType>
     {
     }
 
+    public PlayerStateType GetState()
+    {
+        return _fsm.CurrentState;
+    }
+
     public void ChangeState(PlayerStateType newState, Animator animator)
     {
         _fsm.ChangeState(newState, animator);

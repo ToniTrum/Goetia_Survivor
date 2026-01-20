@@ -22,6 +22,11 @@ public class EnemyView : IEntityView<EnemyStateType>
         
     }
 
+    public EnemyStateType GetState()
+    {
+        return _fsm.CurrentState;
+    }
+
     public void ChangeState(EnemyStateType state, Animator animator)
     {
         _fsm.ChangeState(state, animator);
