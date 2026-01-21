@@ -12,11 +12,17 @@ public class Hand<TState> : MonoBehaviour
     [Inject] protected HandView<TState> View { get; private set; }
     [Inject] protected HandPresenter Presenter { get; private set; }
     [Inject] protected HandTargetLocator TargetLocator { get; private set; }
+    [Inject] protected IHandAttack Attack { get; private set; }
 
     public void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
         Collider2D = GetComponentInChildren<Collider2D>();
+    }
+
+    public void OnAttack()
+    {
+        Attack.Attack();
     }
 
     public TState GetState()

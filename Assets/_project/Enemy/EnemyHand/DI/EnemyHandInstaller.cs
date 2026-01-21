@@ -26,13 +26,17 @@ public class EnemyHandInstaller: Installer
         _container.Bind<HandTargetLocator>()
             .AsTransient();
 
+        var handAttackProvider = new EnemyHandAttackProvider();
+        _container.Bind<IHandAttack>()
+            .To(handAttackProvider.GetEnemyHandAttack(_enemyType))
+            .AsTransient();
+
         _container.Bind<HandFsm<EnemyStateType>>()
             .To<EnemyHandFsm>()
             .AsTransient();
 
-        var handViewProvider = new EnemyHandViewProvider();
         _container.Bind<HandView<EnemyStateType>>()
-            .To(handViewProvider.GetEnemyHandType(_enemyType))
+            .To<EnemyHandView>()
             .AsTransient();
     }
 }
