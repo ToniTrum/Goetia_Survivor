@@ -7,6 +7,7 @@ public class Hand<TState> : MonoBehaviour
     where TState : Enum
 {
     private Animator _animator;
+    protected Collider2D Collider2D;
 
     [Inject] protected HandView<TState> View { get; private set; }
     [Inject] protected HandPresenter Presenter { get; private set; }
@@ -15,6 +16,7 @@ public class Hand<TState> : MonoBehaviour
     public void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
+        Collider2D = GetComponentInChildren<Collider2D>();
     }
 
     public TState GetState()

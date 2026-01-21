@@ -60,6 +60,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: FurcasPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_Size.y
+      value: 0.65175414
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.030000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.17412291
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3852205216784209722, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.3

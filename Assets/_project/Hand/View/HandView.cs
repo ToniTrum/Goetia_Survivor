@@ -7,10 +7,6 @@ public abstract class HandView<T>
 {
     [Inject] private HandFsm<T> _fsm;
 
-    public abstract void Idle();
-    public abstract void Walk();
-    public abstract void Attack();
-
     public T GetState()
     {
         return _fsm.CurrentState;

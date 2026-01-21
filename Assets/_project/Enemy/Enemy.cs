@@ -19,6 +19,11 @@ public class Enemy : Entity<EnemyStateType>
         Idle();
     }
 
+    public void OnAttackingStart()
+    {
+        
+    }
+
     public IEnumerator OnAttackAnimationComplete()
     {
         _isAttackCooldown = true;
