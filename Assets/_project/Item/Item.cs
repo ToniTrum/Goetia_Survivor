@@ -1,16 +1,23 @@
+using System;
 using UnityEngine;
+using Zenject;
 
-public class Item : MonoBehaviour
+public class Item
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    ItemModel Model;
+
+    public Item(ItemConfiguration itemConfiguration)
     {
-        
+        Model = new ItemModel(itemConfiguration.Id, itemConfiguration.name, itemConfiguration.Effect);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Apply(PlayerModel playerModel)
     {
-        
+        Model.Effect.Apply(playerModel);
+    }
+
+    public string GetId()
+    {
+        return Model.Id;
     }
 }

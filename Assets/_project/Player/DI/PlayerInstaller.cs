@@ -22,7 +22,8 @@ public class PlayerInstaller : MonoInstaller
                     playerConfig.Speed,
                     playerConfig.DashSpeed,
                     playerConfig.DashDuration,
-                    playerConfig.DashCooldown
+                    playerConfig.DashCooldown,
+                    playerConfig.Gold
                 )
             )
             .AsSingle();
