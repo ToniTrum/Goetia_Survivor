@@ -38,4 +38,9 @@ public class EnemyPresenter : IEntityPresenter
     {
         return Model.AttackCooldown;
     }
+
+    public float GetAttackOffset()
+    {
+        return Model.AttackOffset;
+    }
 }

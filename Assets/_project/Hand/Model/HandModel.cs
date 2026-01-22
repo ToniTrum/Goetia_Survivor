@@ -5,7 +5,7 @@ public abstract class HandModel
 {
     public float Range { get; private set; }
     public float AttackCooldown { get; private set; }
-    public float Damage { get; private set; }
+    public int Damage { get; private set; }
 
     public HandModel(HandConfig handBaseModel)
     {

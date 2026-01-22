@@ -7,10 +7,6 @@ public abstract class HandView<T>
 {
     [Inject] private HandFsm<T> _fsm;
 
-    public abstract void Idle();
-    public abstract void Walk();
-    public abstract void Attack();
-
     public T GetState()
     {
         return _fsm.CurrentState;
@@ -19,5 +15,21 @@ public abstract class HandView<T>
     public void ChangeState(T state, Animator animator)
     {
         _fsm.ChangeState(state, animator);
+    }
+
+    public Vector3 Flip(Vector3 direction, Vector3 localScale)
+    {
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        if (angle > 90 || angle < -90)
+        {
+            localScale.x = -1f;
+        }
+        else
+        {
+            localScale.x = 1f;
+        }
+
+        return localScale;
     }
 }

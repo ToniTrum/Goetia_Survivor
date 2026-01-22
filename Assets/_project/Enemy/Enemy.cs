@@ -1,29 +1,30 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class Enemy : Entity<EnemyStateType>
 {
+    private bool _isAttackCooldown = false;
+
     [Inject] protected EnemyMovement Movement;
     [Inject] protected EnemyService EnemyService;
 
-    private bool _isAttackCooldown = false;
-
     public void OnSpawnAnimationComplete()
     {
+        transform.Find("HealthBar").gameObject.SetActive(true);
+        HealthBar = transform.Find("HealthBar/Background/ProgressBar").GetComponent<Image>();
+
         EnemyService.Register(this);
-        View.ChangeState(EnemyStateType.Idle, Animator);
-        Hand.ChangeState(EnemyStateType.Idle);
+        Idle();
     }
 
     public IEnumerator OnAttackAnimationComplete()
     {
-        Debug.Log("OnAttackAnimationComplete");
         _isAttackCooldown = true;
         Idle();
 
         yield return new WaitForSeconds(Presenter.GetAttackCooldown());
-        Debug.Log("Attack cooldown over");
         _isAttackCooldown = false;
     }
 
@@ -58,24 +59,39 @@ public class Enemy : Entity<EnemyStateType>
         Hand.ChangeState(EnemyStateType.Attack);
     }
 
+    public void OnFlip(Vector3 direction)
+    {
+        if (View is EnemyView view)
+        {
+            transform.rotation = view.Flip(direction);
+            Hand.OnFlip(direction);
+        }
+    }
+
     private void Update()
     {
         EnemyStateType state = View.GetState();
-        var direction = Hand.GetDirection();
+        var direction = Hand.GetDirection().Value;
+        if (direction == null)
+        {
+            Idle();
+            return;
+        }
 
         if (state != EnemyStateType.Spawn && state != EnemyStateType.Death)
         {
-            if (direction == null || _isAttackCooldown)
+            OnFlip(direction.normalized);
+
+            if (_isAttackCooldown)
             {
                 Idle();
             }
             else
             {
-                bool isMoving = Move(direction.Value);
+                bool isMoving = Move(direction);
 
                 if (!isMoving && !_isAttackCooldown)
                 {
-                    Debug.Log("Attack");
                     Attack();
                 }
             }

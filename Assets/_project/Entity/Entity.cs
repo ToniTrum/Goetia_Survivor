@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 using Zenject;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -10,8 +10,8 @@ public abstract class Entity<TState> : MonoBehaviour, IEntity
 {
     protected Rigidbody2D Rigidbody { get; private set; }
     protected Animator Animator { get; private set; }
-    protected ProgressBar HealthBar { get; private set; }
     protected Hand<TState> Hand { get; private set; }
+    protected Image HealthBar;
     
     [Inject] protected IEntityView<TState> View { get; private set; }
     [Inject] protected IEntityPresenter Presenter { get; private set; }
@@ -27,7 +27,7 @@ public abstract class Entity<TState> : MonoBehaviour, IEntity
 
     public void TakeDamage(int damage)
     {
-        View.UpdateParameterBar(damage, HealthBar, Presenter.GetMaxHealth());
+        View.UpdateParameterBar(HealthBar, damage, Presenter.GetMaxHealth());
         View.PlayHit();
         
         Presenter.TakeDamage(damage);

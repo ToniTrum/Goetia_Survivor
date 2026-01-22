@@ -24,10 +24,18 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 185516378500731835, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1637252378673679880, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
       propertyPath: _enemyConfig
       value: 
       objectReference: {fileID: 11400000, guid: b45188ffa3f7f89ae8690ece7452708e, type: 2}
+    - target: {fileID: 1768276917352147451, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 1927021375870083331, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
       propertyPath: _handConfig
       value: 
@@ -56,6 +64,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: FurcasPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_Size.y
+      value: 0.65175414
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.030000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.17412291
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128266892676793941, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3852205216784209722, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.3
@@ -76,6 +128,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6118196796748758619, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_Name
+      value: Background
+      objectReference: {fileID: 0}
     - target: {fileID: 6522104900062585435, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -83,6 +139,10 @@ PrefabInstance:
     - target: {fileID: 6522104900062585435, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101653486347773001, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 7554339651918893044, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
       propertyPath: m_LocalPosition.x
