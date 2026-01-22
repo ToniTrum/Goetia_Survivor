@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -23,6 +22,11 @@ public class Hand<TState> : MonoBehaviour
     public void OnAttack()
     {
         Attack.Attack();
+    }
+
+    public void OnFlip(Vector3 direction)
+    {
+        transform.localScale = View.Flip(direction, transform.localScale);
     }
 
     public TState GetState()

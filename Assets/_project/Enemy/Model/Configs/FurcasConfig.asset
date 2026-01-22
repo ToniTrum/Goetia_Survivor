@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseSpeed: 2
   BaseMaxHealth: 10
-  BaseDamage: 10
   BaseRange: 1
   BaseAttackCooldown: 1.5
+  BaseAttackOffset: 5

@@ -7,6 +7,21 @@ public class EnemyView : IEntityView<EnemyStateType>
 {
     [Inject] private EnemyFsm _fsm;
 
+    public Quaternion Flip(Vector3 direction)
+    {
+        Quaternion rotation = Quaternion.identity;
+
+        if (direction.x < 0)
+        {
+            rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (direction.x > 0)
+        {
+            rotation = Quaternion.Euler(0, 0, 0);
+        }
+
+        return rotation;
+    }
 
     public void UpdateParameterBar(Image healthBar, int damage, int maxHealth)
     {

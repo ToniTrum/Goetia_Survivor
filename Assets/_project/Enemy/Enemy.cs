@@ -19,11 +19,6 @@ public class Enemy : Entity<EnemyStateType>
         Idle();
     }
 
-    public void OnAttackingStart()
-    {
-        
-    }
-
     public IEnumerator OnAttackAnimationComplete()
     {
         _isAttackCooldown = true;
@@ -64,20 +59,36 @@ public class Enemy : Entity<EnemyStateType>
         Hand.ChangeState(EnemyStateType.Attack);
     }
 
+    public void OnFlip(Vector3 direction)
+    {
+        if (View is EnemyView view)
+        {
+            transform.rotation = view.Flip(direction);
+            Hand.OnFlip(direction);
+        }
+    }
+
     private void Update()
     {
         EnemyStateType state = View.GetState();
-        var direction = Hand.GetDirection();
+        var direction = Hand.GetDirection().Value;
+        if (direction == null)
+        {
+            Idle();
+            return;
+        }
 
         if (state != EnemyStateType.Spawn && state != EnemyStateType.Death)
         {
-            if (direction == null || _isAttackCooldown)
+            OnFlip(direction.normalized);
+
+            if (_isAttackCooldown)
             {
                 Idle();
             }
             else
             {
-                bool isMoving = Move(direction.Value);
+                bool isMoving = Move(direction);
 
                 if (!isMoving && !_isAttackCooldown)
                 {
