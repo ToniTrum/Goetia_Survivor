@@ -1,4 +1,5 @@
 ﻿<Solution>
+  <Project Path="Assembly-CSharp-firstpass.csproj" />
   <Project Path="Zenject.csproj" />
   <Project Path="Zenject-IntegrationTests-Editor.csproj" />
   <Project Path="Zenject-ReflectionBaking-Editor.csproj" />
