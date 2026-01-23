@@ -36,6 +36,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.12
       objectReference: {fileID: 0}
+    - target: {fileID: 1768276917352147451, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768276917352147451, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768276917352147451, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1927021375870083331, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
       propertyPath: _handConfig
       value: 
