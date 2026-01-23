@@ -10,4 +10,9 @@ public class HandPresenter
     {
         return Model.GetTargets();
     }
+
+    public int GetDamage()
+    {
+        return Model.Damage;
+    }
 }

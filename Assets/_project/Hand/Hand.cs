@@ -1,42 +1,63 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class Hand<TState> : MonoBehaviour
     where TState : Enum
 {
-    private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
+    protected Collider2D Collider2D;
 
     [Inject] protected HandView<TState> View { get; private set; }
     [Inject] protected HandPresenter Presenter { get; private set; }
     [Inject] protected HandTargetLocator TargetLocator { get; private set; }
+    [Inject] protected IHandAttack Attack { get; private set; }
 
     public void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponentInChildren<Animator>();
+        Collider2D = GetComponentInChildren<Collider2D>();
     }
 
-    public void Enable()
+    public void OnAttack()
     {
-        View.EnableSprite(_spriteRenderer);
+        Attack.Attack();
     }
 
-    public void Disable()
+    public TState GetState()
     {
-        View.DisableSprite(_spriteRenderer);
+        return View.GetState();
     }
 
-    public void FixedUpdate()
+    public void ChangeState(TState state)
     {
-        IReadOnlyList<Transform> targets = Presenter.GetTargets();
-        Transform target = TargetLocator.ChooseTarget(targets, transform.position);
+        View.ChangeState(state, _animator);
     }
 
-    // public void OnDrawGizmos()
-    // {
-    //     Gizmos.color = Color.red;
-    //     Gizmos.DrawLine(transform.position, TargetLocator.ChooseTarget(Presenter.GetTargets(), transform.position).position);
-    // }
+    public Vector3? GetDirection()
+    {
+        var targets = Presenter.GetTargets();
+        if (targets == null)
+        {
+            return null;
+        }
+
+        return TargetLocator.ChooseTarget(targets, transform.position).position;
+    }
+
+    public void OnDrawGizmos()
+    {
+        var targets = Presenter.GetTargets();
+        if (targets == null)
+        {
+            return;
+        }
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine
+        (
+            transform.position, 
+            TargetLocator.ChooseTarget(targets, transform.position).position
+        );
+    }
 }

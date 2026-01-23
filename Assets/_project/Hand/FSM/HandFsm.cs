@@ -4,8 +4,10 @@ using System;
 public abstract class HandFsm<T>
     where T : Enum
 {
-    protected T _currentState;
+    private T _currentState;
     private readonly string _animatorParameter = "State";
+
+    public T CurrentState => _currentState;
 
     public void ChangeState(T state, Animator animator)
     {

@@ -7,18 +7,9 @@ public abstract class HandView<T>
 {
     [Inject] private HandFsm<T> _fsm;
 
-    public abstract void Idle();
-    public abstract void Walk();
-    public abstract void Attack();
-
-    public void EnableSprite(SpriteRenderer spriteRenderer)
+    public T GetState()
     {
-        spriteRenderer.enabled = true;
-    }
-
-    public void DisableSprite(SpriteRenderer spriteRenderer)
-    {
-        spriteRenderer.enabled = false;
+        return _fsm.CurrentState;
     }
 
     public void ChangeState(T state, Animator animator)

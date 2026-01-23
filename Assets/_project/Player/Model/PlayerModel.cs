@@ -1,6 +1,6 @@
 using System;
 using System.Diagnostics.Tracing;
-using Unity.Mathematics;
+using UnityEngine;
 
 public class PlayerModel : IEntityModel
 {
@@ -50,6 +50,11 @@ public class PlayerModel : IEntityModel
             } 
         }
     }
+
+    public float Range { get; set; }
+
+    public float AttackCooldown { get; set; }
+
     public float DashSpeed { get; set; } 
     public float DashDuration { get; set; } 
     public float DashCooldown { get; set; }
@@ -71,14 +76,31 @@ public class PlayerModel : IEntityModel
 
     public void TakeDamage(int damage)
     {
-        Health = math.max(0, Health - damage);
+        Health = Mathf.Max(0, Health - damage);
     }
 
-    public PlayerModel(int maxHealth, float speed, float dashSpeed, float dashDuration, float dashCooldown, int gold)
+    public PlayerModel
+    (
+        int maxHealth, 
+        float speed, 
+        float range,
+
+        float attackCooldown,
+        
+        float dashSpeed, 
+        float dashDuration, 
+        float dashCooldown,
+
+        int gold
+    )
     {
         MaxHealth = maxHealth;
         Health = maxHealth;
         Speed = speed;
+        Range = range;
+
+        AttackCooldown = attackCooldown;
+
         DashSpeed = dashSpeed;
         DashDuration = dashDuration;
         DashCooldown = dashCooldown;

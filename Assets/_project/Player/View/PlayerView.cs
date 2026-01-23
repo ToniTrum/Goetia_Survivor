@@ -1,15 +1,16 @@
 using System;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 using Zenject;
 
 public class PlayerView : IEntityView<PlayerStateType>
 {
     [Inject] private PlayerFsm _fsm;
 
-    public void UpdateParameterBar(int damage, ProgressBar healthBar, int maxHealth)
+    public void UpdateParameterBar(Image parameterBar, int damage, int maxHealth)
     {
-        healthBar.value = Math.Clamp(healthBar.value - damage, 0, maxHealth);
+        float amount = parameterBar.fillAmount * maxHealth;
+        parameterBar.fillAmount = Math.Clamp(amount - damage, 0, maxHealth) / maxHealth;
     }
 
     public void PlayHit()
@@ -19,6 +20,11 @@ public class PlayerView : IEntityView<PlayerStateType>
 
     public void PlayDeath()
     {
+    }
+
+    public PlayerStateType GetState()
+    {
+        return _fsm.CurrentState;
     }
 
     public void ChangeState(PlayerStateType newState, Animator animator)

@@ -5,5 +5,5 @@ public class HandConfig : ScriptableObject
 {
     public float BaseRange;
     public float BaseAttackCooldown;
-    public float BaseDamage;
+    public int BaseDamage;
 }

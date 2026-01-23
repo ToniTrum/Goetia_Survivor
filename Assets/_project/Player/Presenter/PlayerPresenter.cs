@@ -33,4 +33,18 @@ public class PlayerPresenter : IEntityPresenter
         item.Apply(_model);
     }
     
+    public float GetRange()
+    {
+        return _model.Range;
+    }
+
+    public float GetSpeed()
+    {
+        return _model.Speed;
+    }
+
+    public float GetAttackCooldown()
+    {
+        return _model.AttackCooldown;
+    }
 }

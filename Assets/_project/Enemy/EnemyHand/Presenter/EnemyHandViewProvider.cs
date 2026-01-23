@@ -1,12 +1,12 @@
 using System;
 
-public class EnemyHandViewProvider
+public class EnemyHandAttackProvider
 {
-    public Type GetEnemyHandType(EnemyType enemyType)
+    public Type GetEnemyHandAttack(EnemyType enemyType)
     {
         return enemyType switch
         {
-            EnemyType.Furcas => typeof(FurcasHandView),
+            EnemyType.Furcas => typeof(FurcasHandAttack),
             _ => throw new ArgumentOutOfRangeException(nameof(enemyType), enemyType, null),
         };
     }
