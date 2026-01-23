@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f830cd6d5f1844da43887a3a04384b, type: 3}
   m_Name: SpeedBootConfiguration
   m_EditorClassIdentifier: 
-  Id: 
-  Name: 
-  ItemImage: {fileID: 0}
-  Cost: 0
-  Effect: {fileID: 0}
+  Id: speed_boot
+  Name: Speed Boot
+  ItemImage: {fileID: -8078621363277735237, guid: 60196f27752967f4196afa6df9531441, type: 3}
+  Cost: 15
+  Effect: {fileID: 11400000, guid: 0d9f247e665192b4e800c00730332629, type: 2}

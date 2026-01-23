@@ -16,3 +16,7 @@ MonoBehaviour:
   RefreshCost: 10
   AvaliableItems:
   - {fileID: 11400000, guid: 754aff7e3ae2d264da00415d17c5c36f, type: 2}
+  - {fileID: 11400000, guid: 2b189ab12e0e574428b479266dd964fe, type: 2}
+  - {fileID: 11400000, guid: 4fcd51c34ca6a9443b0e7bfa3b2ea36d, type: 2}
+  - {fileID: 11400000, guid: 754aff7e3ae2d264da00415d17c5c36f, type: 2}
+  - {fileID: 11400000, guid: 2b189ab12e0e574428b479266dd964fe, type: 2}

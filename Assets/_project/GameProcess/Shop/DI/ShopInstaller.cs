@@ -10,7 +10,10 @@ public class ShopInstaller : MonoInstaller
         .FromInstance(shopConfiguration)
         .AsSingle();
 
-        Container.Bind<ShopService>()
+        Container.Bind<ShopModel>()
+        .AsSingle();
+        
+        Container.Bind<ShopPresenter>()
         .AsSingle()
         .NonLazy();
     }

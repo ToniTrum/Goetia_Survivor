@@ -1115,7 +1115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7730141805432973266}
-  - component: {fileID: 273261237319810603}
+  - component: {fileID: 6054798799536357049}
   m_Layer: 0
   m_Name: Shop Panel
   m_TagString: Untagged
@@ -1139,7 +1139,7 @@ Transform:
   - {fileID: 1189223888434313481}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &273261237319810603
+--- !u!114 &6054798799536357049
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1148,14 +1148,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8035133813122584838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d88a1fd6528dc34780c23da69a5b6db, type: 3}
+  m_Script: {fileID: 11500000, guid: e868016cc99d9484c9ac68f70649f266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemSlotsContainer: {fileID: 315039787231345382}
   itemSlotPrefab: {fileID: 3592540163639619343, guid: e66e9a46e9982fa46a33906884e545e6, type: 3}
+  goldText: {fileID: 5073633226293021937}
   refreshButton: {fileID: 1074774264132585493}
   refreshCostText: {fileID: 8840505327008343663}
-  GoldText: {fileID: 5073633226293021937}
   refreshButtonText: {fileID: 4802003707779297292}
   closeButton: {fileID: 2899055551663849596}
   statsWindow: {fileID: 6909119689571659436}

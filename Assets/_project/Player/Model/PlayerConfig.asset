@@ -17,3 +17,4 @@ MonoBehaviour:
   DashSpeed: 10
   DashDuration: 0.3
   DashCooldown: 1.5
+  Gold: 300
