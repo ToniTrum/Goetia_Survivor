@@ -64,7 +64,6 @@ public class Enemy : Entity<EnemyStateType>
         if (View is EnemyView view)
         {
             transform.rotation = view.Flip(direction);
-            Hand.OnFlip(direction);
         }
     }
 

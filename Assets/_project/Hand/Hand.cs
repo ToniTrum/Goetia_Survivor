@@ -24,11 +24,6 @@ public class Hand<TState> : MonoBehaviour
         Attack.Attack();
     }
 
-    public void OnFlip(Vector3 direction)
-    {
-        transform.localScale = View.Flip(direction, transform.localScale);
-    }
-
     public TState GetState()
     {
         return View.GetState();
@@ -52,14 +47,13 @@ public class Hand<TState> : MonoBehaviour
 
     public void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
         var targets = Presenter.GetTargets();
-
         if (targets == null)
         {
             return;
         }
 
+        Gizmos.color = Color.red;
         Gizmos.DrawLine
         (
             transform.position, 
