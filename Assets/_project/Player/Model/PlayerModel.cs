@@ -7,10 +7,12 @@ public class PlayerModel : IEntityModel
     public event Action<int> OnHealthChanged;
     public event Action<int> OnMaxHealthChanged;
     public event Action<int> OnGoldChanged;
+    public event Action<float> OnSpeedChanged;
 
     private int _maxHealth;
     private int _health;
     private int _gold;
+    private float _speed;
 
     public int MaxHealth 
     { 
@@ -36,7 +38,18 @@ public class PlayerModel : IEntityModel
             }
         }
     }
-    public float Speed { get; set; }
+    public float Speed
+    {
+        get => _speed;
+        set
+        {
+           if(_speed != value)
+            {
+                _speed = value;
+                OnSpeedChanged?.Invoke(_speed);
+            } 
+        }
+    }
     public float DashSpeed { get; set; } 
     public float DashDuration { get; set; } 
     public float DashCooldown { get; set; }
