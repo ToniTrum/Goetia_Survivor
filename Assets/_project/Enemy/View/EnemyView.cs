@@ -13,7 +13,7 @@ public class EnemyView : IEntityView<EnemyStateType>
 
         if (direction.x < 0)
         {
-            rotation = Quaternion.Euler(0, 180, 0);
+            rotation = Quaternion.Euler(0, -180, 0);
         }
         else if (direction.x > 0)
         {

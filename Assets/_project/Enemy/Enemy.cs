@@ -41,6 +41,11 @@ public class Enemy : Entity<EnemyStateType>
 
     private bool Move(Vector3 targetPosition)
     {
+        if (View.GetState() == EnemyStateType.Attack)
+        {
+            return false;
+        }
+
         Movement.Move(targetPosition, transform, Presenter.GetRange(), Presenter.GetSpeed());
         if (Movement.IsMoving)
         {
@@ -64,7 +69,6 @@ public class Enemy : Entity<EnemyStateType>
         if (View is EnemyView view)
         {
             transform.rotation = view.Flip(direction);
-            Hand.OnFlip(direction);
         }
     }
 
