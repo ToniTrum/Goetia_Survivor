@@ -6,7 +6,7 @@ public class EnemyHand : Hand<EnemyStateType>
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            // other.GetComponent<Player>().TakeDamage(Presenter.GetDamage());
+            //other.GetComponent<Player>().TakeDamage(Presenter.GetDamage());
             Collider2D.isTrigger = false;
         }
     }
