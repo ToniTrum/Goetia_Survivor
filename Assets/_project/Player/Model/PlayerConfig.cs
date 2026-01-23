@@ -12,4 +12,5 @@ public class PlayerConfig : ScriptableObject
     public float DashSpeed = 10f;
     public float DashDuration = 0.3f;
     public float DashCooldown = 1.5f;
+    public int Gold = 10;
 }

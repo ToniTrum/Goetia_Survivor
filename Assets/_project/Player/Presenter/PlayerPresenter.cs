@@ -27,6 +27,11 @@ public class PlayerPresenter : IEntityPresenter
     {
         return _model.Health;
     }
+
+    public void ApplyItem(Item item)
+    {
+        item.Apply(_model);
+    }
     
     public float GetRange()
     {

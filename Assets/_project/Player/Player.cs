@@ -8,10 +8,20 @@ public class Player : Entity<PlayerStateType>
     private float lastDashTime = 0f;
     [Inject] protected PlayerModel Model;
 
+    [SerializeField] HealthBar healthBar;
+    [SerializeField] GoldBar goldBar;
+
     private bool moving => moveInput != Vector2.zero;
     private bool isDashing = false;
     private float dashEndTime = 0f;
     private Vector2 dashDirection;
+
+    private void Start()
+    {
+        healthBar.Subscribe(Model);
+        goldBar.Subscribe(Model);
+
+    }
 
     private void Update()
     {

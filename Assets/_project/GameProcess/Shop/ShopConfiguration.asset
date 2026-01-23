@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da8e8905768f504da94ce847ce30940, type: 3}
+  m_Name: ShopConfiguration
+  m_EditorClassIdentifier: 
+  SlotCount: 3
+  RefreshCost: 10
+  AvaliableItems:
+  - {fileID: 11400000, guid: 754aff7e3ae2d264da00415d17c5c36f, type: 2}
+  - {fileID: 11400000, guid: 2b189ab12e0e574428b479266dd964fe, type: 2}
+  - {fileID: 11400000, guid: 4fcd51c34ca6a9443b0e7bfa3b2ea36d, type: 2}
+  - {fileID: 11400000, guid: 754aff7e3ae2d264da00415d17c5c36f, type: 2}
+  - {fileID: 11400000, guid: 2b189ab12e0e574428b479266dd964fe, type: 2}

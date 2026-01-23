@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f830cd6d5f1844da43887a3a04384b, type: 3}
+  m_Name: SpeedBootConfiguration
+  m_EditorClassIdentifier: 
+  Id: speed_boot
+  Name: Speed Boot
+  ItemImage: {fileID: -8078621363277735237, guid: 60196f27752967f4196afa6df9531441, type: 3}
+  Cost: 15
+  Effect: {fileID: 11400000, guid: 0d9f247e665192b4e800c00730332629, type: 2}
