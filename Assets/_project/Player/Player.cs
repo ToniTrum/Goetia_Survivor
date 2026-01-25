@@ -1,31 +1,37 @@
-using NUnit.Framework;
 using UnityEngine;
 using Zenject;
 
 public class Player : Entity<PlayerStateType>
 {
     private Vector2 moveInput;
-    private float lastDashTime = 0f;
     [Inject] protected PlayerModel Model;
 
     [SerializeField] HealthBar healthBar;
     [SerializeField] GoldBar goldBar;
+    [SerializeField] StaminaBar staminaBar;
 
     private bool moving => moveInput != Vector2.zero;
-    private bool isDashing = false;
     private float dashEndTime = 0f;
+    private float lastDashTime = 0f;
+    private float lastHealthRegenTime = 0f;
+    private float lastStaminaRegenTime = 0f;
+    private bool isDashing = false;
     private Vector2 dashDirection;
 
     private void Start()
     {
         healthBar.Subscribe(Model);
         goldBar.Subscribe(Model);
+        staminaBar.Subscribe(Model);
 
+        lastHealthRegenTime = Time.time;
+        lastStaminaRegenTime = Time.time;
     }
 
     private void Update()
     {
         ReadInput();
+        HandleRegeneration();
 
        
         if (Input.GetKeyDown(KeyCode.Space))
@@ -62,8 +68,11 @@ public class Player : Entity<PlayerStateType>
 
     private void StartDash()
     {
-        if (Time.time < lastDashTime + Model.DashCooldown || moveInput == Vector2.zero)
+        if (Time.time < lastDashTime + Model.DashCooldown || 
+            moveInput == Vector2.zero || Model.Stamina < Model.DashCost)
             return;
+
+        Model.Stamina -= Model.DashCost;
 
         isDashing = true;
         dashEndTime = Time.time + Model.DashDuration;
@@ -71,6 +80,27 @@ public class Player : Entity<PlayerStateType>
         dashDirection = moveInput;
 
         View?.ChangeState(PlayerStateType.Dash, Animator);
+    }
+
+    private void HandleRegeneration()
+    {
+        if (Model.HealthRegeneration > 0 && Model.Health < Model.MaxHealth)
+        {
+            if (Time.time >= lastHealthRegenTime + PlayerModel.HEALTH_REGEN_INTERVAL)
+            {
+                Model.RegenerateHealth();
+                lastHealthRegenTime = Time.time;
+            }
+        }
+        
+        if (!isDashing && Model.StaminaRegeneration > 0 && Model.Stamina < Model.MaxStamina)
+        {
+            if (Time.time >= lastStaminaRegenTime + PlayerModel.STAMINA_REGEN_INTERVAL)
+            {
+                Model.RegenerateStamina();
+                lastStaminaRegenTime = Time.time;
+            }
+        }
     }
 
     private void Idle()

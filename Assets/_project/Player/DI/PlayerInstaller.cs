@@ -19,14 +19,20 @@ public class PlayerInstaller : MonoInstaller
             .FromInstance(
                 new PlayerModel(
                     playerConfig.MaxHealth,
-                    playerConfig.Speed,
-                    playerConfig.Range,
+                    playerConfig.HealthRegeneration,
 
+                    playerConfig.MaxStamina,
+                    playerConfig.StaminaRegeneration,
+                    playerConfig.Speed,
+
+                    playerConfig.Range,
                     playerConfig.AttackCooldown,
                     
                     playerConfig.DashSpeed,
                     playerConfig.DashDuration,
                     playerConfig.DashCooldown,
+                    playerConfig.DashCost,
+
                     playerConfig.Gold
                 )
             )

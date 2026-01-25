@@ -18,7 +18,6 @@ public class HealthBar : MonoBehaviour
 
     public void Init(int maxHealth)
     {
-        Debug.Log(maxHealth);
         bar.maxValue = maxHealth;
         bar.value = maxHealth;
         UpdateTextHp(maxHealth, maxHealth);

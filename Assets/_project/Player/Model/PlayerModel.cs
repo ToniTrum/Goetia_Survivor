@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class PlayerModel : IEntityModel
 {
-    public event Action<int> OnHealthChanged;
+    public static float HEALTH_REGEN_INTERVAL = 1f;
+    public static float STAMINA_REGEN_INTERVAL = 0.2f;
     public event Action<int> OnMaxHealthChanged;
+    public event Action<int> OnHealthChanged;
+    public event Action<int> OnHealthRegenerationChanged;
+    public event Action<int> OnMaxStaminaChanged;
+    public event Action<int> OnStaminaChanged;
+    public event Action<int> OnStaminaRegenerationChanged;
     public event Action<int> OnGoldChanged;
     public event Action<float> OnSpeedChanged;
 
     private int _maxHealth;
     private int _health;
+    private int _healthRegeneration;
+    private int _maxStamina;
+    private int _stamina;
+    private int _staminaRegeneration;
     private int _gold;
     private float _speed;
 
@@ -38,6 +48,58 @@ public class PlayerModel : IEntityModel
             }
         }
     }
+
+    public int HealthRegeneration
+    {
+        get => _healthRegeneration;
+        set
+        {
+            if(_healthRegeneration != value)
+            {
+                _healthRegeneration = value;
+                OnHealthRegenerationChanged?.Invoke(_healthRegeneration);
+            }
+        }
+    }
+
+    public int MaxStamina
+    {
+        get => _maxStamina;
+        set
+        {
+            if(_maxStamina != value)
+            {
+                _maxStamina = value;
+                OnMaxStaminaChanged?.Invoke(_maxStamina);
+            }
+        }
+    }
+
+    public int Stamina
+    {
+        get => _stamina;
+        set
+        {
+            if(_stamina != value)
+            {
+                _stamina = value;
+                OnStaminaChanged?.Invoke(_stamina);
+            }
+        }
+    }
+
+    public int StaminaRegeneration
+    {
+        get => _staminaRegeneration;
+        set
+        {
+            if(_staminaRegeneration != value)
+            {
+                _staminaRegeneration = value;
+                OnStaminaRegenerationChanged?.Invoke(_staminaRegeneration);
+            }
+        }
+    }
     public float Speed
     {
         get => _speed;
@@ -58,6 +120,7 @@ public class PlayerModel : IEntityModel
     public float DashSpeed { get; set; } 
     public float DashDuration { get; set; } 
     public float DashCooldown { get; set; }
+    public int DashCost { get; set; }
     public bool IsAlive => Health > 0;
     public int Gold
     {
@@ -81,21 +144,31 @@ public class PlayerModel : IEntityModel
 
     public PlayerModel
     (
-        int maxHealth, 
-        float speed, 
-        float range,
+        int maxHealth,
+        int healthRegeneration,
 
+        int maxStamina,
+        int staminaRegeneration,
+        float speed,
+
+        float range,
         float attackCooldown,
         
         float dashSpeed, 
         float dashDuration, 
         float dashCooldown,
+        int dashCost,
 
         int gold
     )
     {
         MaxHealth = maxHealth;
         Health = maxHealth;
+        HealthRegeneration = healthRegeneration;
+
+        MaxStamina = maxStamina;
+        Stamina = maxStamina;
+        StaminaRegeneration = staminaRegeneration;
         Speed = speed;
         Range = range;
 
@@ -104,6 +177,7 @@ public class PlayerModel : IEntityModel
         DashSpeed = dashSpeed;
         DashDuration = dashDuration;
         DashCooldown = dashCooldown;
+        DashCost = dashCost;
         Gold = gold;
 
         Inventory = new Inventory();
@@ -125,5 +199,16 @@ public class PlayerModel : IEntityModel
         {
             Gold -= value;
         }
+    }
+
+    public void RegenerateHealth()
+    {
+        Health = Mathf.Min(MaxHealth, Health + HealthRegeneration);
+    }
+
+    public void RegenerateStamina()
+    {
+        int regenAmount = Mathf.RoundToInt(StaminaRegeneration * STAMINA_REGEN_INTERVAL);
+        Stamina = Mathf.Min(MaxStamina, Stamina + regenAmount);
     }
 }
