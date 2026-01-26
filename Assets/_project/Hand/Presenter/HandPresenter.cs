@@ -15,4 +15,9 @@ public class HandPresenter
     {
         return Model.Damage;
     }
+
+    public float GetRange()
+    {
+        return Model.Range;
+    }
 }

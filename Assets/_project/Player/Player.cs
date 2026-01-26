@@ -1,14 +1,19 @@
+using System.Collections;
 using UnityEngine;
 using Zenject;
 
 public class Player : Entity<PlayerStateType>
 {
+
     private Vector2 moveInput;
+    private bool _isAttackCooldown = false;
     [Inject] protected PlayerModel Model;
 
     [SerializeField] HealthBar healthBar;
     [SerializeField] GoldBar goldBar;
     [SerializeField] StaminaBar staminaBar;
+
+    private PlayerHand PlayerHand => Hand as PlayerHand;
 
     private bool moving => moveInput != Vector2.zero;
     private float dashEndTime = 0f;
@@ -16,6 +21,8 @@ public class Player : Entity<PlayerStateType>
     private float lastHealthRegenTime = 0f;
     private float lastStaminaRegenTime = 0f;
     private bool isDashing = false;
+
+    private bool isAttacking = false;
     private Vector2 dashDirection;
 
     private void Start()
@@ -32,11 +39,13 @@ public class Player : Entity<PlayerStateType>
     {
         ReadInput();
         HandleRegeneration();
+        HandleAttackInput();
 
        
         if (Input.GetKeyDown(KeyCode.Space))
             StartDash();
     }
+
 
     private void FixedUpdate()
     {
@@ -54,6 +63,39 @@ public class Player : Entity<PlayerStateType>
             ActionHandling();
         }
     }
+
+    private void HandleAttackInput()
+    {
+        if (PlayerHand == null)
+            return;
+        
+        if (PlayerHand.IsNearFromEnemy() && !isAttacking && !isDashing)
+        {
+            PerformAttack();
+        }
+    }
+
+    private void PerformAttack()
+    {
+        isAttacking = true;
+        
+        PlayerHand.PerformAttack();
+
+        StartCoroutine(OnAttackAnimationComplete());
+    }
+    
+    public IEnumerator OnAttackAnimationComplete()
+    {
+        yield return new WaitForSeconds(Presenter.GetAttackCooldown());
+        
+        isAttacking = false;
+        
+        if (!moving && !isDashing)
+        {
+            Hand.ChangeState(PlayerStateType.Idle); 
+        }
+    }
+
 
     private void ReadInput()
     {
