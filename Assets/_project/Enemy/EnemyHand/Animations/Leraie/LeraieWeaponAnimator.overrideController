@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LeraieWeaponAnimator
+  m_Controller: {fileID: 9100000, guid: 46df8be2d1d464b1f984e2337a2e1300, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 200f52a6e4746c59e94e0763b8fa3c98, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d541551ec40c033d69673aac52e6357e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 63d9b0741c2abc835813ce06252c3024, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 83ed3ed5bab844cb8bdba42e68aa43b2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 96916a6dbbe05b323a0ca2e060eb5c55, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 77e1038af6365ea0eade4ccb1f139726, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e4e206748833bda4f8d47e0b917877fb, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 938992eacaf49ab04ae4119cf5a1d46f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3d7f9b8abc70fab6ab5500d93ce333a6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: df802addd066d863f9dbbafc0d6ebbc7, type: 2}

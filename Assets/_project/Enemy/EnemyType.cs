@@ -1,4 +1,5 @@
 public enum EnemyType
 {
-    Furcas
+    Furcas,
+    Leraie
 }
