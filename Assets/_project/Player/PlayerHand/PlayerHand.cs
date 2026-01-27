@@ -8,7 +8,6 @@ public class PlayerHand : Hand<PlayerStateType>
     private void Update()
     {
         LookAtNearestEnemy();
-
     }
 
     public void LookAtNearestEnemy()
@@ -59,7 +58,6 @@ public class PlayerHand : Hand<PlayerStateType>
     {
         if (Collider2D == null)
         {
-            Debug.LogError("Collider2D is NULL!");
             return;
         }
 
@@ -90,7 +88,6 @@ public class PlayerHand : Hand<PlayerStateType>
                 {
                     int damage = Presenter != null ? Presenter.GetDamage() : 10;
                     enemy.TakeDamage(damage);
-                    Debug.Log($"Dealt {damage} damage to {enemyCollider.name}");
                 }
             }
         }

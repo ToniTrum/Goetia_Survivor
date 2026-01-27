@@ -9,4 +9,9 @@ public class PlayerHandProxy : MonoBehaviour
         _player = GetComponentInParent<Player>();
     }
 
+    public void OnAttackAnimationComplete()
+    {
+        StartCoroutine(_player.OnAttackAnimationComplete());
+    }
+
 }

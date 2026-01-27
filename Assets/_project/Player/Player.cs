@@ -86,14 +86,11 @@ public class Player : Entity<PlayerStateType>
     
     public IEnumerator OnAttackAnimationComplete()
     {
-        yield return new WaitForSeconds(Presenter.GetAttackCooldown());
-        
         isAttacking = false;
-        
-        if (!moving && !isDashing)
-        {
-            Hand.ChangeState(PlayerStateType.Idle); 
-        }
+        Idle();
+
+        yield return new WaitForSeconds(Presenter.GetAttackCooldown());
+        Hand.ChangeState(PlayerStateType.Idle);
     }
 
 
