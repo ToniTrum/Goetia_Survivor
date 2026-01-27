@@ -7,6 +7,7 @@ public class EnemyHandAttackProvider
         return enemyType switch
         {
             EnemyType.Furcas => typeof(FurcasHandAttack),
+            EnemyType.Leraie => typeof(LeraieHandAttack),
             _ => throw new ArgumentOutOfRangeException(nameof(enemyType), enemyType, null),
         };
     }
