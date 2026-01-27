@@ -12,5 +12,9 @@ public class ArenaInstaller : MonoInstaller
         Container.Bind<EnemyFactory>()
             .AsSingle()
             .NonLazy();
+
+        Container.Bind<ProjectileFactory>()
+            .AsSingle()
+            .NonLazy();
     }
 }

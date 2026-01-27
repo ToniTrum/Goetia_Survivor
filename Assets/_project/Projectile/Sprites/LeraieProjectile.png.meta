@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1cc0fae6063b278be8417b9d41739777
+guid: 180545872721c76bbae261b4b3228e51
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3533516308545807683
-    second: LeraieWeaponBullet_0
+      213: 8229432409034203727
+    second: LeraieProjectile_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LeraieWeaponBullet_0
+      name: LeraieProjectile_0
       rect:
         serializedVersion: 2
         x: 6
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dbad31583ad66fec0800000000000000
-      internalID: -3533516308545807683
+      spriteID: f422293bc21d43270800000000000000
+      internalID: 8229432409034203727
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LeraieWeaponBullet_0: -3533516308545807683
+      LeraieProjectile_0: 8229432409034203727
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -34,8 +34,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6522104900062585435, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7312815619730204334, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
+      propertyPath: _projectileConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 6c7b07c3b48423d0fbb6ca693f33a16b, type: 2}
     - target: {fileID: 7554339651918893044, guid: fb15f3babdc2e6d21abcc74d6df8dbf5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
